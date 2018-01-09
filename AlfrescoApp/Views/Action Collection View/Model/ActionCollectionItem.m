@@ -151,6 +151,8 @@ NSString * const kActionCollectionIdentifierUnsync = @"ActionCollectionIdentifie
     return [[self alloc] initWithImage:[UIImage imageNamed:@"actionsheet-unsync.png"] title:NSLocalizedString(@"action.unsync", @"Unsync") identifier:kActionCollectionIdentifierUnsync];
 }
 
+
+
 - (instancetype)initWithImage:(UIImage *)itemImage title:(NSString *)itemTitle identifier:(NSString *)itemIdentifier
 {
     self = [super init];
