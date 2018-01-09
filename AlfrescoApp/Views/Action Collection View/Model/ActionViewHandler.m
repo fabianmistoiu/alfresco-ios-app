@@ -737,6 +737,27 @@
     }];
 }
 
+- (void)pressedDeclareRecord:(ActionCollectionItem *)actionItem node:(AlfrescoDocument *)document {
+	NSLog(@"%@",[self.session.baseUrl absoluteString]);
+	
+	
+	NSString *requestString = [NSString stringWithFormat:@"/api/-default-/public/gs/versions/1/files/%@/declare",document.syncIdentifier];
+	NSURL *url = [NSURL URLWithString:[[self.session.baseUrl absoluteString] stringByAppendingPathComponent:requestString]];
+	NSLog(@"%@", url);
+	
+	AlfrescoRequest *request = [[AlfrescoRequest alloc] init];
+	[self.session.networkProvider executeRequestWithURL:url
+												session:self.session
+											requestBody:nil
+												 method:@"POST"
+										alfrescoRequest:request
+										completionBlock:^(NSData *data, NSError *error) {
+		NSString *response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+		NSLog(@"%@", response);
+	}];
+	
+}
+
 #pragma mark - DocumentPreviewManager Notification Callbacks
 
 - (void)downloadComplete:(NSNotification *)notification

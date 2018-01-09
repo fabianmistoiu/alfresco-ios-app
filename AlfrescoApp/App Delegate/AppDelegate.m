@@ -41,6 +41,8 @@
 #import "RealmSyncManager+CoreDataMigration.h"
 #import <HockeySDK/HockeySDK.h>
 
+#import "ServerModulesHelper.h"
+
 @import MediaPlayer;
 
 static NSString * const kMDMMissingRequiredKeysKey = @"MDMMissingKeysKey";
@@ -71,6 +73,8 @@ static NSString * const kMDMMissingRequiredKeysKey = @"MDMMissingKeysKey";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	
+	[ServerModulesHelper sharedHelper];
     /**
      * This version of the app has been coded in such a way to require valid Alfresco in the Cloud OAuth key and secret tokens.
      * These should be populated in the AlfrescoApp.xcconfig file, either via an environment variable or directly in the file.

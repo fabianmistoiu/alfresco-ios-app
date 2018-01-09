@@ -28,6 +28,7 @@
 #import "RealmSyncManager.h"
 #import "SecurityManager.h"
 #import "AccountDetailsViewController.h"
+#import "ServerModulesHelper.h"
 
 static NSInteger const kAccountSelectionButtonWidth = 32;
 static NSInteger const kAccountSelectionButtongHeight = 32;
@@ -510,7 +511,9 @@ static CGFloat const kAccountNetworkCellHeight = 50.0f;
             {
                 [[AccountManager sharedManager] selectAccount:account selectNetwork:networkId alfrescoSession:alfrescoSession];
                 [self.tableView reloadData];
-                
+				
+				[[ServerModulesHelper sharedHelper] setSession:alfrescoSession];
+				
                 NSString *label = account.accountType == UserAccountTypeOnPremise ? ([account.samlData isSamlEnabled] ? kAnalyticsEventLabelOnPremiseSAML : kAnalyticsEventLabelOnPremise) : kAnalyticsEventLabelCloud;
                 [[AnalyticsManager sharedManager] trackEventWithCategory:kAnalyticsEventCategorySession
                                                                   action:kAnalyticsEventActionSwitch

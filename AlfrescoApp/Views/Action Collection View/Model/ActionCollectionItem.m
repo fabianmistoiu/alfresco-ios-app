@@ -42,6 +42,7 @@ NSString * const kActionCollectionIdentifierSendForReview = @"ActionCollectionId
 NSString * const kActionCollectionIdentifierUploadNewVersion = @"ActionCollectionIdentifierUploadNewVersion";
 NSString * const kActionCollectionIdentifierSync = @"ActionCollectionIdentifierSync";
 NSString * const kActionCollectionIdentifierUnsync = @"ActionCollectionIdentifierUnsync";
+NSString * const kActionCollectionIdentifierDeclareRecord = @"ActionCollectionIdentifierDeclareRecord";
 
 @interface ActionCollectionItem ()
 
@@ -151,7 +152,11 @@ NSString * const kActionCollectionIdentifierUnsync = @"ActionCollectionIdentifie
     return [[self alloc] initWithImage:[UIImage imageNamed:@"actionsheet-unsync.png"] title:NSLocalizedString(@"action.unsync", @"Unsync") identifier:kActionCollectionIdentifierUnsync];
 }
 
-
++ (ActionCollectionItem *)declareRecord
+{
+	return [[self alloc] initWithImage:[UIImage imageNamed:@"actionsheet-unsync.png"] title:@"Declare as Record"
+							identifier:kActionCollectionIdentifierDeclareRecord];
+}
 
 - (instancetype)initWithImage:(UIImage *)itemImage title:(NSString *)itemTitle identifier:(NSString *)itemIdentifier
 {

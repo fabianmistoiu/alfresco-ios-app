@@ -36,6 +36,7 @@
 #import "VersionHistoryViewController.h"
 #import "AccountManager.h"
 #import "RealmSyncManager.h"
+#import "ServerModulesHelper.h"
 
 static CGFloat const kActionViewAdditionalTextRowHeight = 15.0f;
 #define kDocumentDetailsAnalyticsNames @[kAnalyticsViewDocumentDetailsPreview,\
@@ -249,6 +250,19 @@ static CGFloat const kActionViewAdditionalTextRowHeight = 15.0f;
     }
     [items addObject:[ActionCollectionItem favouriteItem]];
     [items addObject:[ActionCollectionItem likeItem]];
+	
+	//TDOD: add check
+	BOOL isRecord = false;
+	for (NSString *aspect in self.document.aspects) {
+		if ([aspect hasPrefix:@"rma:"]) {
+			isRecord = true;
+			break;
+		}
+	}
+	if (!isRecord && [ServerModulesHelper sharedHelper].isRMInstalled) {
+		[items addObject:[ActionCollectionItem declareRecord]];
+	}
+	
     
     if ([self.session isKindOfClass:[AlfrescoRepositorySession class]])
     {
@@ -261,7 +275,7 @@ static CGFloat const kActionViewAdditionalTextRowHeight = 15.0f;
         [items addObject:[ActionCollectionItem commentItem]];
     }
     
-    if (self.documentPermissions.canEdit)
+    if (self.documentPermissions.canEdit && !isRecord)
     {
        NSArray *editableDocumentExtensions = [kEditableDocumentExtensions componentsSeparatedByString:@","];
        NSArray *editableDocumentMimeTypes = [kEditableDocumentMimeTypes componentsSeparatedByString:@","];
@@ -274,12 +288,12 @@ static CGFloat const kActionViewAdditionalTextRowHeight = 15.0f;
        }
     }
     
-    if (self.documentPermissions.canSetContent)
+    if (self.documentPermissions.canSetContent && !isRecord)
     {
         [items addObject:[ActionCollectionItem uploadNewVersion]];
     }
     
-    if (!isRestricted)
+    if (!isRestricted && !isRecord)
     {
         [items addObject:[ActionCollectionItem openInItem]];
 
@@ -476,6 +490,9 @@ static CGFloat const kActionViewAdditionalTextRowHeight = 15.0f;
     {
         [self.actionHandler pressedUnsyncActionItem:actionItem];
     }
+	else if ([actionItem.itemIdentifier isEqualToString:kActionCollectionIdentifierDeclareRecord]) {
+		[self.actionHandler pressedDeclareRecord:actionItem node:self.document];
+	}
     
     [self shouldFocusComments:shouldFocusComments];
 }

@@ -730,6 +730,7 @@
 		73FF558C18ACE2370009CA56 /* large_xml@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 73FF557418ACE2370009CA56 /* large_xml@2x.png */; };
 		73FF558D18ACE2370009CA56 /* large_zip.png in Resources */ = {isa = PBXBuildFile; fileRef = 73FF557518ACE2370009CA56 /* large_zip.png */; };
 		73FF558E18ACE2370009CA56 /* large_zip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 73FF557618ACE2370009CA56 /* large_zip@2x.png */; };
+		FF536B7E20051E2B00A60917 /* ServerModulesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536B7D20051E2B00A60917 /* ServerModulesHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1935,6 +1936,8 @@
 		80BFF6FCEAD31D1A36EB49BF /* Pods-AlfrescoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlfrescoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlfrescoApp/Pods-AlfrescoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A544CBC5CD8C7DE64C27C0EB /* libPods-AlfrescoDocumentPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AlfrescoDocumentPicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E49C6C6B447478825EEDA62B /* Pods-AlfrescoApp.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlfrescoApp.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-AlfrescoApp/Pods-AlfrescoApp.adhoc.xcconfig"; sourceTree = "<group>"; };
+		FF536B7C20051E2B00A60917 /* ServerModulesHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerModulesHelper.h; sourceTree = "<group>"; };
+		FF536B7D20051E2B00A60917 /* ServerModulesHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerModulesHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2917,6 +2920,7 @@
 		7373B4FE17A66E9400869949 /* AlfrescoApp */ = {
 			isa = PBXGroup;
 			children = (
+				FF536B7720051D8000A60917 /* InovationTime */,
 				73B957C717A673A90099FB84 /* App Delegate */,
 				73B957CA17A673A90099FB84 /* Constants */,
 				7379731F18AA8E9B007613B2 /* Data Models */,
@@ -4236,6 +4240,15 @@
 			name = "Text File View Controller";
 			sourceTree = "<group>";
 		};
+		FF536B7720051D8000A60917 /* InovationTime */ = {
+			isa = PBXGroup;
+			children = (
+				FF536B7C20051E2B00A60917 /* ServerModulesHelper.h */,
+				FF536B7D20051E2B00A60917 /* ServerModulesHelper.m */,
+			);
+			path = InovationTime;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4975,7 +4988,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AlfrescoApp/Pods-AlfrescoApp-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/HockeySDK/HockeySDKResources.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/HockeySDK/HockeySDKResources.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -5330,6 +5343,7 @@
 				731A8F46192F56470099BE7B /* NewVersionLabelCell.m in Sources */,
 				278658A31BB60280003B77AA /* CustomFolderService.m in Sources */,
 				731901BB18477E4E002C82C1 /* AccountStatus.m in Sources */,
+				FF536B7E20051E2B00A60917 /* ServerModulesHelper.m in Sources */,
 				73B350B71851E8BF0037E3E3 /* NSData+Base64.m in Sources */,
 				27DA1B651915362300885F0F /* BaseInboundURLHandler.m in Sources */,
 				080A81181855FE3A00B79306 /* ClientCertificateViewController.m in Sources */,

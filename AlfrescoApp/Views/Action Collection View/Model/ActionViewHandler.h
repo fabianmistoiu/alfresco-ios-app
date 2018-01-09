@@ -48,5 +48,6 @@
 - (void)pressedUploadNewVersion:(ActionCollectionItem *)actionItem node:(AlfrescoDocument *)document;
 - (void)pressedSyncActionItem:(ActionCollectionItem *)actionItem;
 - (void)pressedUnsyncActionItem:(ActionCollectionItem *)actionItem;
+- (void)pressedDeclareRecord:(ActionCollectionItem *)actionItem node:(AlfrescoDocument *)document;
 
 @end

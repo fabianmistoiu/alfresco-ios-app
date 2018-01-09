@@ -40,6 +40,7 @@ extern NSString * const kActionCollectionIdentifierSendForReview;
 extern NSString * const kActionCollectionIdentifierUploadNewVersion;
 extern NSString * const kActionCollectionIdentifierSync;
 extern NSString * const kActionCollectionIdentifierUnsync;
+extern NSString * const kActionCollectionIdentifierDeclareRecord;
 
 @interface ActionCollectionItem : NSObject
 
@@ -67,6 +68,7 @@ extern NSString * const kActionCollectionIdentifierUnsync;
 + (ActionCollectionItem *)uploadNewVersion;
 + (ActionCollectionItem *)syncItem;
 + (ActionCollectionItem *)unsyncItem;
++ (ActionCollectionItem *)declareRecord;
 - (instancetype)initWithImage:(UIImage *)itemImage title:(NSString *)itemTitle identifier:(NSString *)itemIdentifier;
 
 @end
