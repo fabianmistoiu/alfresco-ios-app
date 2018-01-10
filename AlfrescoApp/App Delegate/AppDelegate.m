@@ -42,6 +42,8 @@
 #import <HockeySDK/HockeySDK.h>
 
 #import "ServerModulesHelper.h"
+#import "SpotlightHelper.h"
+#import <CoreSpotlight/CoreSpotlight.h>
 
 @import MediaPlayer;
 
@@ -72,8 +74,7 @@ static NSString * const kMDMMissingRequiredKeysKey = @"MDMMissingKeysKey";
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-	
+{	
 	[ServerModulesHelper sharedHelper];
     /**
      * This version of the app has been coded in such a way to require valid Alfresco in the Cloud OAuth key and secret tokens.
@@ -189,7 +190,9 @@ static NSString * const kMDMMissingRequiredKeysKey = @"MDMMissingKeysKey";
                                 displayWarningMessageWithTitle(NSLocalizedString(@"accountdetails.fields.confirmPassword", @"Confirm password"), NSLocalizedString(@"accountdetails.header.authentication", "Account Details"));
                             }
                         }
-                    }
+					} else {
+						[[SpotlightHelper sharedHelper] indexFavoritesWithSession:alfrescoSession];
+					}
                     
                     if ([launchOptions objectForKey:UIApplicationLaunchOptionsURLKey])
                     {
@@ -258,6 +261,15 @@ static NSString * const kMDMMissingRequiredKeysKey = @"MDMMissingKeysKey";
     }
     
     return supportedOrientations;
+}
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler {
+	
+	
+	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"alfresco://document/%@",userActivity.userInfo[CSSearchableItemActivityIdentifier]]];
+	[[FileHandlerManager sharedManager] handleURL:url sourceApplication:nil annotation:nil session:self.session];
+	
+	return true;
 }
 
 #pragma mark - Private Functions

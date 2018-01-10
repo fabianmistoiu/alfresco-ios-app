@@ -731,6 +731,9 @@
 		73FF558D18ACE2370009CA56 /* large_zip.png in Resources */ = {isa = PBXBuildFile; fileRef = 73FF557518ACE2370009CA56 /* large_zip.png */; };
 		73FF558E18ACE2370009CA56 /* large_zip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 73FF557618ACE2370009CA56 /* large_zip@2x.png */; };
 		FF536B7E20051E2B00A60917 /* ServerModulesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536B7D20051E2B00A60917 /* ServerModulesHelper.m */; };
+		FF536B81200527C000A60917 /* SpotlightHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536B80200527C000A60917 /* SpotlightHelper.m */; };
+		FF536B83200531F900A60917 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF536B82200531F900A60917 /* CoreSpotlight.framework */; };
+		FF536B862005661500A60917 /* AlfrescoDocument+CSSearchableAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536B852005661500A60917 /* AlfrescoDocument+CSSearchableAttributes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1938,6 +1941,11 @@
 		E49C6C6B447478825EEDA62B /* Pods-AlfrescoApp.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlfrescoApp.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-AlfrescoApp/Pods-AlfrescoApp.adhoc.xcconfig"; sourceTree = "<group>"; };
 		FF536B7C20051E2B00A60917 /* ServerModulesHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerModulesHelper.h; sourceTree = "<group>"; };
 		FF536B7D20051E2B00A60917 /* ServerModulesHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerModulesHelper.m; sourceTree = "<group>"; };
+		FF536B7F200527C000A60917 /* SpotlightHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpotlightHelper.h; sourceTree = "<group>"; };
+		FF536B80200527C000A60917 /* SpotlightHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpotlightHelper.m; sourceTree = "<group>"; };
+		FF536B82200531F900A60917 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
+		FF536B842005661500A60917 /* AlfrescoDocument+CSSearchableAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlfrescoDocument+CSSearchableAttributes.h"; sourceTree = "<group>"; };
+		FF536B852005661500A60917 /* AlfrescoDocument+CSSearchableAttributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AlfrescoDocument+CSSearchableAttributes.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1971,6 +1979,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF536B83200531F900A60917 /* CoreSpotlight.framework in Frameworks */,
 				734CC3B11A6FBC90005D148E /* libAlfrescoKit.a in Frameworks */,
 				272C41D419C7AF2600DABBF0 /* libFlurry_5.3.0.a in Frameworks */,
 				6C2913BE59154B74A223E37F /* libPods-AlfrescoApp.a in Frameworks */,
@@ -2909,6 +2918,7 @@
 		7373B4F717A66E9400869949 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF536B82200531F900A60917 /* CoreSpotlight.framework */,
 				73697BB41A9B8DDA009F10BA /* MobileCoreServices.framework */,
 				73697BB21A9B8DC0009F10BA /* SystemConfiguration.framework */,
 				3ECC79C36D4668D49BB1C70B /* libPods-AlfrescoApp.a */,
@@ -4245,6 +4255,10 @@
 			children = (
 				FF536B7C20051E2B00A60917 /* ServerModulesHelper.h */,
 				FF536B7D20051E2B00A60917 /* ServerModulesHelper.m */,
+				FF536B7F200527C000A60917 /* SpotlightHelper.h */,
+				FF536B80200527C000A60917 /* SpotlightHelper.m */,
+				FF536B842005661500A60917 /* AlfrescoDocument+CSSearchableAttributes.h */,
+				FF536B852005661500A60917 /* AlfrescoDocument+CSSearchableAttributes.m */,
 			);
 			path = InovationTime;
 			sourceTree = "<group>";
@@ -5134,6 +5148,7 @@
 				7367CFC01AB1D23C00A1B484 /* UITextField+RightAlignmentSpacingFix.m in Sources */,
 				080828A6184DEDCC000524A3 /* AccountCertificate.m in Sources */,
 				738664C51906B16F0021D1BD /* MetadataCell.m in Sources */,
+				FF536B81200527C000A60917 /* SpotlightHelper.m in Sources */,
 				739C1CB11859D1390068DB6E /* AlfrescoFileManager+Extensions.m in Sources */,
 				739E108318FC19B100495616 /* DownloadsDocumentPreviewViewController.m in Sources */,
 				08E1EA3D18DB2E1200F9052F /* CreateTaskViewController.m in Sources */,
@@ -5164,6 +5179,7 @@
 				7366F7451ACAB78F008DD92E /* MDMLaunchViewController.m in Sources */,
 				2B9D5AD11EF0356A00BB7713 /* UIBarButtonItem+MainMenu.m in Sources */,
 				738664DE1906B2260021D1BD /* ButtonCell.m in Sources */,
+				FF536B862005661500A60917 /* AlfrescoDocument+CSSearchableAttributes.m in Sources */,
 				2B55920B1B90AB1C00D85C7B /* SearchResultsTableViewController.m in Sources */,
 				73B9585617A6750F0099FB84 /* UniversalDevice.m in Sources */,
 				2BF5AECC1B32F6F500FD3BA4 /* SearchCollectionSectionHeader.m in Sources */,

@@ -37,6 +37,7 @@
 #import "AccountManager.h"
 #import "RealmSyncManager.h"
 #import "ServerModulesHelper.h"
+#import "AlfrescoDocument+CSSearchableAttributes.h"
 
 static CGFloat const kActionViewAdditionalTextRowHeight = 15.0f;
 #define kDocumentDetailsAnalyticsNames @[kAnalyticsViewDocumentDetailsPreview,\
@@ -72,7 +73,7 @@ static CGFloat const kActionViewAdditionalTextRowHeight = 15.0f;
     [self localiseUI];
     
     [self updateActionButtons];
-    
+	
     [self addObservers];
 }
 
@@ -81,6 +82,24 @@ static CGFloat const kActionViewAdditionalTextRowHeight = 15.0f;
     [super viewDidAppear:animated];
     
     [self trackScreenNameForIndex:self.pagingScrollView.selectedPageIndex];
+	
+	self.userActivity = [[NSUserActivity alloc] initWithActivityType:@"com.alfresco.document.preview"];
+	self.userActivity.title = self.title;
+	self.userActivity.eligibleForSearch = true;
+	self.userActivity.eligibleForPublicIndexing = false;
+	self.userActivity.eligibleForSearch = false;
+	
+	CSSearchableItemAttributeSet *attributeSet = self.document.itemAttributeSet;
+	self.userActivity.contentAttributeSet = attributeSet;
+	
+	
+	NSLog(@"!! %@",[AccountManager sharedManager].selectedAccount.accountIdentifier);
+	CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier:self.document.syncIdentifier
+															   domainIdentifier:[AccountManager sharedManager].selectedAccount.accountIdentifier attributeSet:attributeSet];
+	[CSSearchableIndex.defaultSearchableIndex indexSearchableItems:@[item] completionHandler:^(NSError * _Nullable error) {
+		NSLog(@"%@",error);
+	}];
+	
 }
 
 - (void)dealloc

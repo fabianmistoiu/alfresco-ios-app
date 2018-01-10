@@ -29,6 +29,7 @@
 #import "SecurityManager.h"
 #import "AccountDetailsViewController.h"
 #import "ServerModulesHelper.h"
+#import "SpotlightHelper.h"
 
 static NSInteger const kAccountSelectionButtonWidth = 32;
 static NSInteger const kAccountSelectionButtongHeight = 32;
@@ -379,8 +380,10 @@ static CGFloat const kAccountNetworkCellHeight = 50.0f;
 	    [[RealmSyncManager sharedManager] disableSyncForAccount:account fromViewController:weakSelf cancelBlock:^{
 	        [weakSelf performSelector:@selector(hideDeleteButton) withObject:nil afterDelay:0.05];
 	    } completionBlock:^{
+			[[SpotlightHelper sharedHelper] removeItemsForAccount:account];
 	        [accountManager removeAccount:account];
 	        [weakSelf updateAccountList];
+			[[SpotlightHelper sharedHelper] removeItemsForAccount:account];
 	    }];
     };
     
@@ -513,6 +516,7 @@ static CGFloat const kAccountNetworkCellHeight = 50.0f;
                 [self.tableView reloadData];
 				
 				[[ServerModulesHelper sharedHelper] setSession:alfrescoSession];
+				[[SpotlightHelper sharedHelper] indexFavoritesWithSession:alfrescoSession];
 				
                 NSString *label = account.accountType == UserAccountTypeOnPremise ? ([account.samlData isSamlEnabled] ? kAnalyticsEventLabelOnPremiseSAML : kAnalyticsEventLabelOnPremise) : kAnalyticsEventLabelCloud;
                 [[AnalyticsManager sharedManager] trackEventWithCategory:kAnalyticsEventCategorySession
