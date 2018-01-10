@@ -38,6 +38,7 @@
 #import "PrintingWebView.h"
 #import "RealmSyncNodeInfo.h"
 #import "RealmManager.h"
+#import "DesktopSyncConnector.h"
 
 @interface ActionViewHandler () <MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate, DownloadsPickerDelegate, UploadFormViewControllerDelegate>
 
@@ -757,6 +758,12 @@
 	}];
 	
 }
+
+
+- (void)pressedSyncToDesktopActionItem:(ActionCollectionItem *)actionItem node:(AlfrescoFolder *)document {
+	[[DesktopSyncConnector sharedConnector] syncFolderToDesktop:document session:self.session];
+}
+
 
 #pragma mark - DocumentPreviewManager Notification Callbacks
 

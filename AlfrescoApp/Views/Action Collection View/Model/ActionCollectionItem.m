@@ -43,6 +43,7 @@ NSString * const kActionCollectionIdentifierUploadNewVersion = @"ActionCollectio
 NSString * const kActionCollectionIdentifierSync = @"ActionCollectionIdentifierSync";
 NSString * const kActionCollectionIdentifierUnsync = @"ActionCollectionIdentifierUnsync";
 NSString * const kActionCollectionIdentifierDeclareRecord = @"ActionCollectionIdentifierDeclareRecord";
+NSString * const kActionCollectionIdentifierSyncFolderToDesktop = @"ActionCollectionIdentifierSyncFolderToDesktop";
 
 @interface ActionCollectionItem ()
 
@@ -157,6 +158,14 @@ NSString * const kActionCollectionIdentifierDeclareRecord = @"ActionCollectionId
 	return [[self alloc] initWithImage:[UIImage imageNamed:@"actionsheet-unsync.png"] title:@"Declare as Record"
 							identifier:kActionCollectionIdentifierDeclareRecord];
 }
+
+
++ (ActionCollectionItem *)syncToDesktop
+{
+	return [[self alloc] initWithImage:[UIImage imageNamed:@"actionsheet-unsync.png"] title:@"Sync to desktop"
+							identifier:kActionCollectionIdentifierSyncFolderToDesktop];
+}
+
 
 - (instancetype)initWithImage:(UIImage *)itemImage title:(NSString *)itemTitle identifier:(NSString *)itemIdentifier
 {

@@ -49,5 +49,5 @@
 - (void)pressedSyncActionItem:(ActionCollectionItem *)actionItem;
 - (void)pressedUnsyncActionItem:(ActionCollectionItem *)actionItem;
 - (void)pressedDeclareRecord:(ActionCollectionItem *)actionItem node:(AlfrescoDocument *)document;
-
+- (void)pressedSyncToDesktopActionItem:(ActionCollectionItem *)actionItem node:(AlfrescoFolder *)document;
 @end

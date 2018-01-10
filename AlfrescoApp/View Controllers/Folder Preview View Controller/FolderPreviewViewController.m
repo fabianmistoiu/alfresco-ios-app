@@ -219,6 +219,7 @@ typedef NS_ENUM(NSUInteger, PagingScrollViewSegmentFolderType)
     {
         [items addObject:[ActionCollectionItem syncItem]];
     }
+	[items addObject:[ActionCollectionItem syncToDesktop]];
     [items addObject:[ActionCollectionItem favouriteItem]];
     [items addObject:[ActionCollectionItem likeItem]];
     
@@ -384,6 +385,10 @@ typedef NS_ENUM(NSUInteger, PagingScrollViewSegmentFolderType)
     {
         [self.actionHandler pressedUnsyncActionItem:actionItem];
     }
+	else if ([actionItem.itemIdentifier isEqualToString:kActionCollectionIdentifierSyncFolderToDesktop])
+	{
+		[self.actionHandler pressedSyncToDesktopActionItem:actionItem node:self.folder];
+	}
     
     [self shouldFocusComments:shouldFocusComments];
 }

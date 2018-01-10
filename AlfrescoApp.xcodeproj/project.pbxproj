@@ -734,6 +734,7 @@
 		FF536B81200527C000A60917 /* SpotlightHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536B80200527C000A60917 /* SpotlightHelper.m */; };
 		FF536B83200531F900A60917 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF536B82200531F900A60917 /* CoreSpotlight.framework */; };
 		FF536B862005661500A60917 /* AlfrescoDocument+CSSearchableAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536B852005661500A60917 /* AlfrescoDocument+CSSearchableAttributes.m */; };
+		FF536B892005BE0800A60917 /* DesktopSyncConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = FF536B882005BE0800A60917 /* DesktopSyncConnector.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1946,6 +1947,8 @@
 		FF536B82200531F900A60917 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
 		FF536B842005661500A60917 /* AlfrescoDocument+CSSearchableAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlfrescoDocument+CSSearchableAttributes.h"; sourceTree = "<group>"; };
 		FF536B852005661500A60917 /* AlfrescoDocument+CSSearchableAttributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AlfrescoDocument+CSSearchableAttributes.m"; sourceTree = "<group>"; };
+		FF536B872005BE0800A60917 /* DesktopSyncConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesktopSyncConnector.h; sourceTree = "<group>"; };
+		FF536B882005BE0800A60917 /* DesktopSyncConnector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesktopSyncConnector.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4259,6 +4262,8 @@
 				FF536B80200527C000A60917 /* SpotlightHelper.m */,
 				FF536B842005661500A60917 /* AlfrescoDocument+CSSearchableAttributes.h */,
 				FF536B852005661500A60917 /* AlfrescoDocument+CSSearchableAttributes.m */,
+				FF536B872005BE0800A60917 /* DesktopSyncConnector.h */,
+				FF536B882005BE0800A60917 /* DesktopSyncConnector.m */,
 			);
 			path = InovationTime;
 			sourceTree = "<group>";
@@ -5217,6 +5222,7 @@
 				731A8F51192F5B1F0099BE7B /* NewVersionTextViewCell.m in Sources */,
 				731A8F4C192F5A0B0099BE7B /* NewVersionToggleCell.m in Sources */,
 				73F628B7185779440050F437 /* TextFileViewController.m in Sources */,
+				FF536B892005BE0800A60917 /* DesktopSyncConnector.m in Sources */,
 				2BFB080C1B14B45F00ED8DFF /* BaseCollectionViewFlowLayout.m in Sources */,
 				2BFB08071B14A1F400ED8DFF /* FileFolderCollectionViewController.m in Sources */,
 				73B9585A17A6750F0099FB84 /* SystemNotice.m in Sources */,
